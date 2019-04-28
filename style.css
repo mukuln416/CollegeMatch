@@ -1,0 +1,16 @@
+body {
+    background-color: rgba(2, 192, 192, 0.7);
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#form2, #form3{
+    display: none;
+}
+
+#final_message{
+    display: none;
+}
