@@ -166,6 +166,7 @@ function formhandling2(formtype){
 function getcolleges1() {
     var totalpoints = ethnicity_points + gpa_points + ap_points + SATorACT_points + totalecpoints + VH_points + JE_points + IT_points;
     console.log(totalpoints);
+    var yeeheadacounter = 0;
     var target = document.createElement("h3");
     var targetNode = document.createTextNode("Your target colleges should be: ");
     var theDiv = document.getElementById("final_message");
@@ -176,49 +177,16 @@ function getcolleges1() {
             var p1 = document.createElement("p");
             var pNode = document.createTextNode(college_arr[i].name + ", ")
             theDiv.appendChild(p1.appendChild(pNode));
-            
-           /* var p2 = document.createElement("p");
-            var pNode = document.createTextNode(college_arr[i].name + ", and ")
-            theDiv.appendChild(p2.appendChild(pNode));
-            
-            var p3 = document.createElement("p");
-            var pNode = document.createTextNode(college_arr[i].name)
-            theDiv.appendChild(p3.appendChild(pNode)); */
+            yeeheadacounter++;
         } 
-            
-            /*var p2 = document.createElement("p");
-            var pNode = document.createTextNode(college_arr[i].name + ", and ")
-            theDiv.appendChild(p2.appendChild(pNode));
-            
-            var p3 = document.createElement("p");
-            var pNode = document.createTextNode(college_arr[i].name)
-            theDiv.appendChild(p3.appendChild(pNode));*/
-        }
-    
-    document.getElementById("final_message").style.display = "block";
-} 
-
-function getMainCollege() {
-    var totalpoints = ethnicity_points + gpa_points + ap_points + SATorACT_points + totalecpoints + VH_points + JE_points + IT_points;
-    console.log(totalpoints);
-    var target = document.createElement("h2");
-    var targetNode = document.createTextNode("Your Main Target should be: ");
-    var theDiv = document.getElementById("final_two");
-    theDiv.appendChild(target.appendChild(targetNode));
-    
-    for (var i = 0 ; i < college_arr.length; i++) {
-        if (user_location == college_arr[i].location1 && college_arr[i].rating > totalpoints-15 && college_arr[i].rating < totalpoints + 15) {
-            var p1 = document.createElement("p");
-            var pNode = document.createTextNode(college_arr[i].name + ", ")
-            theDiv.appendChild(p1.appendChild(pNode));
-            
-        }
-        else {
-            var str ="No primary targets in your score, please refer to the list of suggested colleges above";
-            theDiv.appendChild(p1.appendChild(str));
-        }
     }
-    document.getElementById("final_two").style.display = "block";
+    if(yeeheadacounter == 0){
+        var yeeheada = document.createElement("p");
+        var yeeheadaNode = document.createTextNode("There are no colleges that suit you in our database...")
+        theDiv.appendChild(yeeheada.appendChild(yeeheadaNode));
+        console.log(theDiv)
+    }
+    document.getElementById("final_message").style.display = "block";
 } 
 
 
