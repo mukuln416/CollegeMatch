@@ -8,12 +8,15 @@
   background-image: -webkit-linear-gradient(0deg, #ff0000 0%, #ffff00 100%);
 }
 .blend2{
-  background-image: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);;
+  margin-top:20%;
+  background-image: -webkit-linear-gradient(0deg, #766dff 0%, #88f3ff 100%);
+}
+.blend3 {
+  background-image:-webkit-linear-gradient(0deg, #9CECFB 0%, #0052D4 100%);
 }
 .aboutme{
   background-color: #f2f2f2;
   padding: 10%;
-  margin-top: 20%;
   line-height: 250%;
 }
 .section{

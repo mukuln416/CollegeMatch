@@ -6,6 +6,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Josefin+Sans:700'>
         <link rel="stylesheet" href="index.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
         <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     </head>
@@ -34,20 +37,18 @@
                         <a class="nav-link" href="#about">About App</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="resume.html">About Us</a>
+                        <a class="nav-link" href="#abouts">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Projects.html">Projects</a>
+                        <a class="nav-link" href="#app">Application</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Contact_me.html">Contact Me</a>
+                        <a class="nav-link" href="#contact">Contact Us</a>
                     </li>
                 </ul>
             </nav>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
-            <script type="text/javascript" src="index.js"></script>
         </section>
-        <section class="container title-part-about">
+        <section class="container title-part-about" >
             <h1 id="title">
             </h1>
         </section>
@@ -65,8 +66,8 @@
             }
             typeWriter()
         </script>
-        <section class = "aboutme blend2" style="padding-bottom: 10%; padding-top: 5%">
-            <div class="container">
+        <section class = "aboutme blend2">
+            <div class="container" id="about">
                 <h1 data-aos="fade-up" data-aos-duration="1500" style="text-align:center;font-family: 'Dosis', sans-serif; color:white;">
                    <b> About Our Application</b>
                 </h1>
@@ -80,15 +81,84 @@
                         algorithm that includes your acadamic stats, extracurriculars, and more. 
                     </p>
                     <br>
-                    <h2 id="about" style="text-align:center">
+                    <h2  data-aos="fade-up" data-aos-duration="1500" style="text-align:center">
                         <b><i>"Make the harder easier"</i></b> - College Match Team
                     </h2>
                 <br>
             </div>
         </section>
-        <section class="aboutme">
-            
+        <section class = "aboutme" id="abouts" style="background-color: #f2f2f2;">
+             <div class="container" >
+                <h1 data-aos="fade-up" data-aos-duration="1500" style="text-align:center;font-family: 'Dosis', sans-serif;">
+                    About Us
+                </h1>
+                <br>
+                <p data-aos="fade-up" data-aos-duration="1500" class="big" style="text-align:center;font-family: 'Nanum Gothic', sans-serif;font-size:25px">
+                We are a group of young aspiring and ambitious programmers who go to the same high school. Our names are Mukul, Sai and Kaif. We are just a 
+                group of friends who want to have fun while learning at very fun hackathons. As we joined together as a group a few weeks back we kept
+                thinking of an idea so we wold be ready for LaunchHacks. Our final idea was an application to help Seniors pick the colleges they 
+                would like to go to. After all our hard work this website is our final Product. We would like to thank you for taking your time
+                to visit our website. Please feel free to look at our CollegeMatch application.
+                </p>
+            </div>
         </section>
+         <section class = "aboutme blend3">
+            <div class="container" id="about">
+                <h1 id="app" data-aos="fade-up" data-aos-duration="1500" style="text-align:center;font-family: 'Dosis', sans-serif; color:white;">
+                   <b>CollegeMatch</b>
+                </h1>
+                <br>
+                <br>
+                <p style="text-align:center">
+                    <img data-aos="fade-up" data-aos-duration="1500" src="photos/colleges.jpg" width="70%" height="70%">                    
+                </p>
+                <br>
+                <style>
+                    a {
+                        -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+                        -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+                        -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+                        -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+                        transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+                        display: block;
+                        margin: 20px auto;
+                        max-width: 180px;
+                        text-decoration: none;
+                        border-radius: 4px;
+                        padding: 20px 30px;
+                    }
+                    a.button2 {
+                        color: rgba(30, 22, 54, 0.6);
+                        box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+                    }
+    
+                    a.button2:hover {
+                        color: rgba(255, 255, 255, 0.85);
+                        box-shadow: rgba(30, 22, 54, 0.7) 0 80px 0px 2px inset;
+                    }
+            </style>
+            <p style="text-align:center;" data-aos="fade-up" data-aos-duration="1500">
+  		        <a data-aos="fade-up" data-aos-duration="1500" href="main.html" class="button2" style="text-decoration: none;">The App</a>
+            </p>
+
+            </div>
+        </section>
+        <section class = "aboutme" id="contact" style="background-color: #f2f2f2;">
+             <div class="container" >
+                <h1 data-aos="fade-up" data-aos-duration="1500" style="text-align:center;font-family: 'Dosis', sans-serif;">
+                    About Us
+                </h1>
+                <br>
+                <p data-aos="fade-up" data-aos-duration="1500" class="big" style="text-align:center;font-family: 'Nanum Gothic', sans-serif;font-size:25px">
+                We are a group of young aspiring and ambitious programmers who go to the same high school. Our names are Mukul, Sai and Kaif. We are just a 
+                group of friends who want to have fun while learning at very fun hackathons. As we joined together as a group a few weeks back we kept
+                thinking of an idea so we wold be ready for LaunchHacks. Our final idea was an application to help Seniors pick the colleges they 
+                would like to go to. After all our hard work this website is our final Product. We would like to thank you for taking your time
+                to visit our website. Please feel free to look at our CollegeMatch application.
+                </p>
+            </div>
+        </section>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
         <script type="text/javascript" src="index.js"></script>
     </body>

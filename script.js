@@ -4,7 +4,7 @@ class College{
     constructor(name, location, rating){
         this.location = location;
         this.rating = rating;
-        this.naem = name;
+        this.name = name;
     }
 }
 
@@ -58,14 +58,19 @@ function formhandling1(){
         else {
             ethnicity_points = 0;
         }
-        gpa_points = form1.elements[6] * 20
-        if(form1.elements[7].checked == true){
+        gpa_points = parseInt(form1.elements[6].value)
+        console.log(gpa_points)
+        ap_points = parseInt(form1.elements[7].value) * 5
+        if(ap_points > 50){
+            ap_points = 50;
+        }
+        if(form1.elements[8].checked == true){
             document.getElementById("form2").style.display = "block";
             document.getElementById("f1break").style.display = "none";
             document.getElementById("form1").style.display = "none";
             document.getElementById("errortag1").style.display = "none";
         }
-        else if(form1.elements[8].checked == true) {
+        else if(form1.elements[9].checked == true) {
             document.getElementById("form3").style.display = "block";
             document.getElementById("form1").style.display = "none";
             document.getElementById("f1break").style.display = "none";
@@ -85,19 +90,18 @@ function formhandling1(){
 function formhandling2(formtype){
     var formx = document.getElementById(formtype)
     document.getElementById("errortag2").innerHTML = "";
-    console.log(checkforErrors2(formtype));
     if(checkforErrors2(formtype) == true){
         if(formtype == "form2"){
-            SATorACT_points = formx.elements[0].value/16
+            SATorACT_points = parseInt(formx.elements[0].value)/16
         }
         else{
-            SATorACT_points = formx.elements[0].value*3-8
+            SATorACT_points = parseInt(formx.elements[0].value)*3-8
         }
         
-        ECT4_points = formx.elements[1].value*5
-        ECT3_points = formx.elements[2].value*10
-        ECT2_points = formx.elements[3].value*20 
-        ECT1_points = formx.elements[4].value*40
+        ECT4_points = parseInt(formx.elements[1].value)*5
+        ECT3_points = parseInt(formx.elements[2].value)*10
+        ECT2_points = parseInt(formx.elements[3].value)*20 
+        ECT1_points = parseInt(formx.elements[4].value)*40
         
         totalecpoints = ECT1_points + ECT2_points + ECT3_points + ECT4_points 
         if (totalecpoints > 80){
@@ -105,12 +109,12 @@ function formhandling2(formtype){
         }
         
         
-        VH_points = formx.elements[5].value/5
+        VH_points = parseInt(formx.elements[5].value)/5
         if (VH_points > 30) {
             VH_points = 30;
         }
         
-        JE_points = formx.elements[6].value/5
+        JE_points = parseInt(formx.elements[6].value)/5
         if(JE_points > 30){
             JE_points = 30;
         }
@@ -121,7 +125,6 @@ function formhandling2(formtype){
         else{
             IT_points = 0;
         }
-        console.log("this happened");
         getcolleges1();
     }
     
@@ -134,8 +137,6 @@ function formhandling2(formtype){
         }
     }
 }
-
-var totalpoints = ethnicity_points + gpa_points + ap_points + SATorACT_points + totalecpoints + VH_points +JE_points + IT_points;
 
 function getcolleges1() {
     var newcollege = [];
@@ -150,6 +151,13 @@ function getcolleges1() {
 } 
 
 function getcolleges2(collegearray) {
+    var totalpoints = ethnicity_points + gpa_points + ap_points + SATorACT_points + totalecpoints + VH_points + JE_points + IT_points;
+    console.log("ethnicity" + isNaN(ethnicity_points)); 
+    console.log("gpapoints" +isNaN(gpa_points)); 
+    console.log("appoints" +isNaN(ap_points)); 
+    console.log("satact" +isNaN(SATorACT_points)); 
+    console.log("ec" +isNaN(totalecpoints));
+    console.log(totalpoints);
     var realcolleges = [];
     var collegenumber2 = 0;
     for (var i =0; i < collegearray.length; i ++) {
@@ -158,13 +166,11 @@ function getcolleges2(collegearray) {
             collegenumber2++;
         }
     }
-    console.log("checkpoint1")
     printcolleges(realcolleges)
 }
 
 function printcolleges(newcollegearray){
     var college_message = "";
-    console.log("checkpoint2")
     for(var i = 0; i < newcollegearray.length; i ++){
         college_message = college_message + " " + newcollegearray.name;
     }
@@ -174,7 +180,7 @@ function printcolleges(newcollegearray){
 
 function checkforErrors1(){ 
     var form1 = document.getElementById("form1");
-    if(form1.elements[0].value =="M_CA" || form1.elements[0].value =="N_CA" || form1.elements[0].value =="S_CA" || form1.elements[0].value =="C" && form1.elements[1].checked == true || form1.elements[2].checked == true || form1.elements[3].checked == true || form1.elements[4].checked == true || form1.elements[5].checked == true && form1.elements[6].value >= 0 && form1.elements[6].value <= 5.0 && form1.elements[7].checked == true || form1.elements[8].checked == true){
+    if(form1.elements[0].value =="M_CA" || form1.elements[0].value =="N_CA" || form1.elements[0].value =="S_CA" || form1.elements[0].value =="C" && form1.elements[1].checked == true || form1.elements[2].checked == true || form1.elements[3].checked == true || form1.elements[4].checked == true || form1.elements[5].checked == true && form1.elements[6].value >= 0 && form1.elements[6].value <= 5.0 && form1.elements[8].checked == true || form1.elements[9].checked == true && form1.elements[7].value >= 0 ){
         return true
     }
     else{
@@ -184,9 +190,8 @@ function checkforErrors1(){
 
 function checkforErrors2(formtypee){
     var formx = document.getElementById(formtypee);
-    console.log(parseInt(formx.elements[1].value) + parseInt(formx.elements[2].value) + parseInt(formx.elements[3].value) + parseInt(formx.elements[4].value))
     if(formtypee == 'form2'){
-        if((formx.elements[0].value >= 0 && formx.elements[0].value <= 1600) && formx.elements[1].value >= 0 && formx.elements[2].value >= 0 && formx.elements[3].value >= 0 && formx.elements[4].value >= 0 && formx.elements[5] >= 0 && formx.elements[6].value >= 0 && (formx.elements[7].checked == true || formx.elements[8].checked == true) && (parseInt(formx.elements[1].value) + parseInt(formx.elements[2].value) + parseInt(formx.elements[3].value) + parseInt(formx.elements[4].value)) <= 5){
+        if((formx.elements[0].value >= 0 && formx.elements[0].value <= 1600) && formx.elements[1].value >= 0 && formx.elements[2].value >= 0 && formx.elements[3].value >= 0 && formx.elements[4].value >= 0 && formx.elements[5].value >= 0 && formx.elements[6].value >= 0 && (formx.elements[7].checked == true || formx.elements[8].checked == true) && (parseInt(formx.elements[1].value) + parseInt(formx.elements[2].value) + parseInt(formx.elements[3].value) + parseInt(formx.elements[4].value)) <= 5){
             return true;
         }
         else{
@@ -195,11 +200,10 @@ function checkforErrors2(formtypee){
         }
     }
     else if(formtypee == 'form3'){
-        if((formx.elements[0].value >= 0 && formx.elements[0].value <= 36) && formx.elements[1].value >= 0 && formx.elements[2].value >= 0 && formx.elements[3].value >= 0 && formx.elements[4].value >= 0 && formx.elements[5] >= 0 && formx.elements[6].value >= 0 /*&& (formx.elements[7].checked == true || formx.elements[8].checked == true) && (parseInt(formx.elements[1].value) + parseInt(formx.elements[2].value) + parseInt(formx.elements[3].value) + parseInt(formx.elements[4].value)) <= 5*/){
+        if((formx.elements[0].value >= 0 && formx.elements[0].value <= 36) && formx.elements[1].value >= 0 && formx.elements[2].value >= 0 && formx.elements[3].value >= 0 && formx.elements[4].value >= 0 && formx.elements[5].value >= 0 && formx.elements[6].value >= 0 && (formx.elements[7].checked == true || formx.elements[8].checked == true) && (parseInt(formx.elements[1].value) + parseInt(formx.elements[2].value) + parseInt(formx.elements[3].value) + parseInt(formx.elements[4].value)) <= 5){
             return true;
         }
         else{
-            console.log(formx.elements[1].value)
             return false;
         }
     }
