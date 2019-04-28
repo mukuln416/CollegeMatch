@@ -195,7 +195,7 @@ function checkforErrors2(formtypee){
         }
     }
     else if(formtypee == 'form3'){
-        if((formx.elements[0].value >= 0 && formx.elements[0].value <= 36) && formx.elements[1].value >= 0 && formx.elements[2].value >= 0 && formx.elements[3].value >= 0 && formx.elements[4].value >= 0 && formx.elements[5] >= 0 && formx.elements[6].value >= 0 && (formx.elements[7].checked == true || formx.elements[8].checked == true) && (parseInt(formx.elements[1].value) + parseInt(formx.elements[2].value) + parseInt(formx.elements[3].value) + parseInt(formx.elements[4].value)) <= 5){
+        if((formx.elements[0].value >= 0 && formx.elements[0].value <= 36) && formx.elements[1].value >= 0 && formx.elements[2].value >= 0 && formx.elements[3].value >= 0 && formx.elements[4].value >= 0 && formx.elements[5] >= 0 && formx.elements[6].value >= 0 /*&& (formx.elements[7].checked == true || formx.elements[8].checked == true) && (parseInt(formx.elements[1].value) + parseInt(formx.elements[2].value) + parseInt(formx.elements[3].value) + parseInt(formx.elements[4].value)) <= 5*/){
             return true;
         }
         else{
