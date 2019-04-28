@@ -3,17 +3,56 @@
     <head>
         <title> CollegeMatch </title>
         <link rel="stylesheet" href="style.css">
-        <script src="script.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bootstrap-4.3.1-dist/css/bootstrap.min.css">
     </head>
     <body>
-        <h1>College Matcher</h1>
+        <a href="index.html">
+          <i style="color:white;" class="fas fa-home fa-5x"></i>
+        </a>
+        <h1 style="color:white; border:white;">College Matcher</h1>
+        <div class = "contain">
+        
         <form id="form1">
-            What is your location(reference the table below for values)<br>
+          <div class = "margin">
+            What is your location(reference the table below for values)
+            <br>
+            <br>
+            <p>
+              <table>
+                <tr>
+                  <th>Area</th>
+                  <th>Input</th> 
+                </tr>
+                <tr>
+                  <td>North California</td>
+                  <td>N_CA</td> 
+                </tr>
+                <tr>
+                  <td>Middle California</td>
+                  <td>M_CA</td> 
+                </tr>
+                <tr>
+                  <td>South California</td>
+                  <td>S_CA</td> 
+                </tr>
+                <tr>
+                  <td>Massachusetts</td>
+                  <td>MA</td> 
+                </tr>
+              </table>
+            </p>
+            <br>
+            <br>
             <input type="text" name="location"><br>
             
             <br id= "f1break">
             
             What is your ethnicity?<br>
+            
+            <br id = "f1break"> 
+            
             <input type="radio" name="ethnicity" value="Hispanic">Hispanic<br>
             <input type="radio" name="ethnicity" value="Caucasian">Caucasian<br>
             <input type="radio" name="ethnicity" value="African American">African American<br>
@@ -36,7 +75,9 @@
             <input type="radio" name="SATorACT" value="SAT">SAT<br>
             <input type="radio" name="SATorACT" value="ACT">ACT<br>
             <br>
-            <button type="button" onclick="formhandling1()">Next</button>
+            <p style="text-align:center;" class="buttonm">
+              <button type="button" onclick="formhandling1()">Next</button>
+            </p>
         </form>
         
         
@@ -44,7 +85,7 @@
         <br><p id="errortag1"></p><br><br>
         
         
-        
+        </div>
         <form id="form2">
             What is your best SAT score?<br>
             <input type="text" name="SAT"><br>
@@ -58,46 +99,67 @@
             <br>
             
             <p>For this next question, you may only enter 5 extracirricular activities total. They are rated Tier 1 to Tier 4, as shown in the table below:</p>
-            
+            <br>
+            <p>
+              <table id = "tiers">
+                <tr>
+                  <th>Tier 1</th>
+                  <th>Tier 2</th>
+                  <th>Tier 3</th>
+                  <th>Tier 4</th>
+                </tr>
+                <tr>
+                  <td>This includes founding and being president of a club with 25+ members for, being state ranked in sports, making an app with 5000+ users</td>
+                  <td>This includes being a president of a club for 2 or more years, making an app with 100+ users, being a varsity athlete, black belt in karate</td> 
+                  <td>This includes having an officer position at a club, making an app, being a jv athlete  </td>
+                  <td>This includes being in a club, knowing a little bit of coding </td>        </tr>
+              </table>
+            </p>
+
+            <br>
             How many tier 4 extracurricular activities have you done(refer to table above) <br>
             <input type = "text" name="Extracirricular4"><br>
             
-            <br>
+            <br><br>
             
             How many tier 3 extracurricular activities have you done(refer to table above) <br>
             <input type = "text" name="Extracirricular3"><br>
             
-            <br>
+            <br><br>
             
             How many tier 2 extracurricular activities have you done(refer to table above) <br>
             <input type = "text" name="Extracirricular2"><br>
             
-            <br>
+            <br><br>
             
             How many tier 1 extracurricular activities have you done(refer to table above)<br>
             <input type = "text" name="Extracirricular1"><br>
             
+            <br><br>
             
             How may hours of unpaid service(volunteering) have you done since the start of high school?<br>
             <input type="text" name="volunteering_hours"><br>
             
-            <br>
+            <br><br>
             
              How may hours of "paid" work experience have you had since the start of high school?<br>
             <input type="text" name="job_hours"><br>
             
-            <br>
+            <br><br>
             
             Have you done anything illegal or have anything bad on your school record since the start of high school?<br>
             <input type="radio" name="illegalstuff" value="Yes">Yes<br>
             <input type="radio" name="illegalstuff" value="No">No<br>
             
-            <br>
-            
-            <button type="button" onclick="formhandling2('form2')">Finish</button>
+            <br><br>
+            <p style="text-align:center;" class="buttonm">
+              <button type="button" onclick="formhandling2('form2')">Finish</button>
+            </p>
         </form>
         <p id="errortag2"></p>
         
+        </div>
+        </div>
         <form id='form3'>
             What is your best ACT score?<br>
             <input type="text" name="ACT"><br>
@@ -105,48 +167,72 @@
             <br>
             
             <p>For this next question, you may only enter 5 extracirricular activities total. They are rated Tier 1 to Tier 4, as shown in the table below:</p>
+            <p style="text-align:left">
+              <table id = "tiers">
+                <tr>
+                  <th>Tier 1</th>
+                  <th>Tier 2</th>
+                  <th>Tier 3</th>
+                  <th>Tier 4</th>
+                </tr>
+                <tr>
+                  <td>This includes founding and being president of a club with 25+ members for, being state ranked in sports, making an app with 5000+ users</td>                
+                  <td>This includes being a president of a club for 2 or more years, making an app with 100+ users, being a varsity athlete, black belt in karate</td>       
+                  <td>This includes having an officer position at a club, making an app, being a jv athlete  </td>
+                  <td>This includes being in a club, knowing a little bit of coding or entry level</td>        
+                </tr>
+              </table>
+            </p>
             
             How many tier 4 extracurricular activities have you done(refer to table above) <br>
             <input type = "text" name="Extracirricular4"><br>
             
-            <br>
+            <br><br>
             
             How many tier 3 extracurricular activities have you done(refer to table above) <br>
             <input type = "text" name="Extracirricular3"><br>
             
-            <br>
+            <br><br>
             
             How many tier 2 extracurricular activities have you done(refer to table above) <br>
             <input type = "text" name="Extracirricular2"><br>
             
-            <br>
+            <br><br>
             
             How many tier 1 extracurricular activities have you done(refer to table above)<br>
             <input type = "text" name="Extracirricular1"><br>
             
+            <br><br>
             
             How may hours of unpaid service(volunteering) have you done since the start of high school?<br>
             <input type="text" name="volunteering_hours"><br>
             
-            <br>
+            <br><br>
             
              How may hours of "paid" work experience have you had since the start of high school?<br>
             <input type="text" name="job_hours"><br>
             
-            <br>
+            <br><br>
             
             Have you done anything illegal or have anything bad on your school record since the start of high school?<br>
             <input type="radio" name="illegalstuff" value="Yes">Yes<br>
             <input type="radio" name="illegalstuff" value="No">No<br>
             
-            <br>
-            
-            <input onclick="formhandling2('form3')" type="button" value="Finish">
+            <br><br>
+            <p style="text-align:center;" class="buttonm">
+              <input onclick="formhandling2('form3')" type="button" value="Finish">
+            </p>
         </form>
         <p id="errortag3"></p>
         
         <br>
         <br>
-        <h3 id="final_message"></h3>
+        <section class="container">
+          <div id="final_message"></div>
+        </section>
+        <section class="container">
+          <div id="final_two"></div>
+        </section>
+        <script src="script.js"></script>
     </body>
 </html>

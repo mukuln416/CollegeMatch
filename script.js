@@ -1,8 +1,8 @@
 /* global rgba */
 
 class College{
-    constructor(name, location, rating){
-        this.location = location;
+    constructor(name, location1, rating){
+        this.location1 = location1;
         this.rating = rating;
         this.name = name;
     }
@@ -14,7 +14,7 @@ var college_arr = [];
 college_arr[0] = new College("Stanford", "N_CA", 370);
 college_arr[1] = new College("UC San Diego", "S_CA", 275);
 college_arr[2] = new College("California Institute of Technology", "S_CA", 320);
-college_arr[3] = new College("UC Berekly", "M_CA", 300);
+college_arr[3] = new College("UC Berekley", "M_CA", 300);
 college_arr[4] = new College("UC Irvine", "S_CA", 245);
 college_arr[5] = new College("CSU Sacramento", "N_CA", 160);
 college_arr[6] = new College("UC Riverside", "S_CA", 180);
@@ -22,7 +22,7 @@ college_arr[7] = new College("San Jose State University", "N_CA", 190);
 college_arr[8] = new College("UC Santa Barbara", "S_CA", 230);
 college_arr[9] = new College("UC Davis", "N_CA", 200);
 college_arr[10] = new College("UC Merced", "M_CA", 180);
-college_arr[11] = new College("UC Los Angeles", "M_CA", 285);
+college_arr[11] = new College("UC Los Angeles", "M_CA", 310);
 college_arr[12] = new College("CSU Chico", "N_CA", 170);
 college_arr[13] = new College("University of San Fransisco", "N_CA", 150);
 college_arr[14] = new College("CSU Fresno", "M_CA", 180);
@@ -32,33 +32,56 @@ college_arr[17] = new College("CSU East Bay", "N_CA", 130);
 college_arr[18] = new College("CSU Monterey Bay", "M_CA", 130);
 college_arr[19] = new College("UC Santa Cruz", "N_CA", 190);
 college_arr[20] = new College("Los Angeles Valley College", "S_CA", 50);
-college_arr[21] = new College("Cal State Long Beach", "S_CA", 160);
+college_arr[21] = new College("CSU Long Beach", "S_CA", 230);
 college_arr[22] = new College("University of Southern California", "S_CA", 300);
 college_arr[23] = new College("Peperdine University", "S_CA", 270);
 college_arr[24] = new College("San Diego State University", "S_CA", 170);
 college_arr[25] = new College("California State University--Fullerton", "S_CA", 150);
 college_arr[26] = new College("Santa Clara University", "M_CA", 185);
 college_arr[27] = new College("Saint Mary University", "M_CA", 110);
-college_arr[28] = new College("Community College", "M_CA", 0);
-college_arr[29] = new College()
+college_arr[28] = new College("Community College", "M_CA", 20);
+college_arr[29] = new College("Community College", "N_CA", 20);
+college_arr[30] = new College("Community College", "S_CA", 20);
+college_arr[31] = new College("Biola University", "S_CA", 140);
+college_arr[32] = new College("California Polytechnic State University", "S_CA", 280);
+college_arr[33] = new College("Chapman University", "S_CA", 190);
+college_arr[34] = new College("UC San Francisco (medical only)", "N_CA", 280);
+college_arr[35] = new College("CSU San Bernardino", "S_CA", 160);
+college_arr[36] = new College("Massachusates Institute of Technology", "MA", 380);
+college_arr[37] = new College("Harvard", "MA", 380);
+college_arr[38] = new College("Boston School of Medicine", "MA", 360);
+college_arr[39] = new College("TUFTS University", "MA", 360);
+college_arr[40] = new College("Emerson College", "MA", 270);
+college_arr[41] = new College("Framingham University", "MA", 140);
+college_arr[42] = new College("Franklin W. Olin College of Engineering", "MA",360 );
+college_arr[43] = new College("Smith College", "MA", 320);
+college_arr[44] = new College("Brandeis University", "MA", 310);
+
+
+
+
+
+
+
+
 
 
 
 //data_handling
-var location, ethnicity_points, gpa_points, ap_points, SATorACT_points, ECT1_points, ECT2_points, ECT3_points, ECT4_points, VH_points, JE_points, IT_points, totalecpoints ;
+var user_location, ethnicity_points, gpa_points, ap_points, SATorACT_points, ECT1_points, ECT2_points, ECT3_points, ECT4_points, VH_points, JE_points, IT_points, totalecpoints ;
 
 function formhandling1(){
     var form1 = document.getElementById("form1");
     document.getElementById("errortag1").innerHTML = "";
     if(checkforErrors1() == true){
-        var location = form1.elements[0].value;
+        user_location = form1.elements[0].value;
         if(form1.elements[1].checked == true || form1.elements[3].checked == true){
             ethnicity_points = 10;
         }
         else {
             ethnicity_points = 0;
         }
-        gpa_points = parseInt(form1.elements[6].value)
+        gpa_points = form1.elements[6].value * 20
         console.log(gpa_points)
         ap_points = parseInt(form1.elements[7].value) * 5
         if(ap_points > 50){
@@ -80,8 +103,8 @@ function formhandling1(){
         
     }
     else{
-        document.getElementById("errortag1").innerHTML = "Sorry, but you have not entered all the information correctly";
-        document.getElementById("form1").style.background = rgba(255, 0, 0, 0.65);
+        document.getElementById("errortag1").innerHTML = "*Sorry, but you have not entered all the information correctly";
+        document.getElementById("errortag1").style.color = "red";
     }
     
     
@@ -131,56 +154,77 @@ function formhandling2(formtype){
     else{
         if(formtype == 'form2'){
             document.getElementById("errortag2").innerHTML = "Sorry, but you have not entered all the information correctly";
+            document.getElementById("errortag2").style.color = "red";
         }
         else{
             document.getElementById("errortag3").innerHTML = "Sorry, but you have not entered all the information correctly"
+            document.getElementById("errortag3").style.color = "red";
         }
     }
 }
 
 function getcolleges1() {
-    var newcollege = [];
-    var collegenumber = 0
+    var totalpoints = ethnicity_points + gpa_points + ap_points + SATorACT_points + totalecpoints + VH_points + JE_points + IT_points;
+    console.log(totalpoints);
+    var target = document.createElement("h3");
+    var targetNode = document.createTextNode("Your target colleges should be: ");
+    var theDiv = document.getElementById("final_message");
+    theDiv.appendChild(target.appendChild(targetNode));
+    
     for (var i = 0 ; i < college_arr.length; i++) {
-        if (location == college_arr[i].location) {
-            newcollege[collegenumber] = college_arr[i];
-            collegenumber ++;
+        if ((user_location == college_arr[i].location1 || user_location == "none") && college_arr[i].rating > totalpoints-25 && college_arr[i].rating < totalpoints + 25) {
+            var p1 = document.createElement("p");
+            var pNode = document.createTextNode(college_arr[i].name + ", ")
+            theDiv.appendChild(p1.appendChild(pNode));
+            
+           /* var p2 = document.createElement("p");
+            var pNode = document.createTextNode(college_arr[i].name + ", and ")
+            theDiv.appendChild(p2.appendChild(pNode));
+            
+            var p3 = document.createElement("p");
+            var pNode = document.createTextNode(college_arr[i].name)
+            theDiv.appendChild(p3.appendChild(pNode)); */
+        } 
+            
+            /*var p2 = document.createElement("p");
+            var pNode = document.createTextNode(college_arr[i].name + ", and ")
+            theDiv.appendChild(p2.appendChild(pNode));
+            
+            var p3 = document.createElement("p");
+            var pNode = document.createTextNode(college_arr[i].name)
+            theDiv.appendChild(p3.appendChild(pNode));*/
         }
-    }
-    getcolleges2(newcollege);
+    
+    document.getElementById("final_message").style.display = "block";
 } 
 
-function getcolleges2(collegearray) {
+function getMainCollege() {
     var totalpoints = ethnicity_points + gpa_points + ap_points + SATorACT_points + totalecpoints + VH_points + JE_points + IT_points;
-    console.log("ethnicity" + isNaN(ethnicity_points)); 
-    console.log("gpapoints" +isNaN(gpa_points)); 
-    console.log("appoints" +isNaN(ap_points)); 
-    console.log("satact" +isNaN(SATorACT_points)); 
-    console.log("ec" +isNaN(totalecpoints));
     console.log(totalpoints);
-    var realcolleges = [];
-    var collegenumber2 = 0;
-    for (var i =0; i < collegearray.length; i ++) {
-        if (collegearray[i].rating > totalpoints-20 && [i].rating < totalpoints +20 ) {
-            realcolleges[collegenumber2] = collegearray[i];
-            collegenumber2++;
+    var target = document.createElement("h2");
+    var targetNode = document.createTextNode("Your Main Target should be: ");
+    var theDiv = document.getElementById("final_two");
+    theDiv.appendChild(target.appendChild(targetNode));
+    
+    for (var i = 0 ; i < college_arr.length; i++) {
+        if (user_location == college_arr[i].location1 && college_arr[i].rating > totalpoints-15 && college_arr[i].rating < totalpoints + 15) {
+            var p1 = document.createElement("p");
+            var pNode = document.createTextNode(college_arr[i].name + ", ")
+            theDiv.appendChild(p1.appendChild(pNode));
+            
+        }
+        else {
+            var str ="No primary targets in your score, please refer to the list of suggested colleges above";
+            theDiv.appendChild(p1.appendChild(str));
         }
     }
-    printcolleges(realcolleges)
-}
+    document.getElementById("final_two").style.display = "block";
+} 
 
-function printcolleges(newcollegearray){
-    var college_message = "";
-    for(var i = 0; i < newcollegearray.length; i ++){
-        college_message = college_message + " " + newcollegearray.name;
-    }
-    document.getElementById("final_message").innerHTML = "Your target schools are:" + college_message;
-    document.getElementById("final_message").style.display = "block";
-}
 
 function checkforErrors1(){ 
     var form1 = document.getElementById("form1");
-    if(form1.elements[0].value =="M_CA" || form1.elements[0].value =="N_CA" || form1.elements[0].value =="S_CA" || form1.elements[0].value =="C" && form1.elements[1].checked == true || form1.elements[2].checked == true || form1.elements[3].checked == true || form1.elements[4].checked == true || form1.elements[5].checked == true && form1.elements[6].value >= 0 && form1.elements[6].value <= 5.0 && form1.elements[8].checked == true || form1.elements[9].checked == true && form1.elements[7].value >= 0 ){
+    if((form1.elements[0].value == "none" || form1.elements[0].value =="M_CA" || form1.elements[0].value =="N_CA" || form1.elements[0].value =="S_CA" || form1.elements[0].value =="MA") && (form1.elements[1].checked == true || form1.elements[2].checked == true || form1.elements[3].checked == true || form1.elements[4].checked == true || form1.elements[5].checked == true) && form1.elements[6].value >= 0 && form1.elements[6].value <= 5.0 && (form1.elements[8].checked == true || form1.elements[9].checked) == true && form1.elements[7].value >= 0 ){
         return true
     }
     else{
