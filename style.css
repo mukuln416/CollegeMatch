@@ -58,12 +58,9 @@ p {
 
 #final_message{
     display: none;
-    position: relative;
-    top: 250px;
-    left: 500px;
-}
-#final_two{
-    display: none;
+    position: absolute;
+    top: 1500px;
+    left: 600px;
 }
 
 #form3{

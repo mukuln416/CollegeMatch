@@ -224,7 +224,7 @@ function getMainCollege() {
 
 function checkforErrors1(){ 
     var form1 = document.getElementById("form1");
-    if((form1.elements[0].value == "none" || form1.elements[0].value =="M_CA" || form1.elements[0].value =="N_CA" || form1.elements[0].value =="S_CA" || form1.elements[0].value =="MA") && (form1.elements[1].checked == true || form1.elements[2].checked == true || form1.elements[3].checked == true || form1.elements[4].checked == true || form1.elements[5].checked == true) && form1.elements[6].value >= 0 && form1.elements[6].value <= 5.0 && (form1.elements[8].checked == true || form1.elements[9].checked) == true && form1.elements[7].value >= 0 ){
+    if((form1.elements[0].value == "none" ||form1.elements[0].value =="M_CA" || form1.elements[0].value =="N_CA" || form1.elements[0].value =="S_CA" || form1.elements[0].value =="MA") && (form1.elements[1].checked == true || form1.elements[2].checked == true || form1.elements[3].checked == true || form1.elements[4].checked == true || form1.elements[5].checked == true) && form1.elements[6].value >= 0 && form1.elements[6].value <= 5.0 && (form1.elements[8].checked == true || form1.elements[9].checked) == true && form1.elements[7].value >= 0 ){
         return true
     }
     else{
